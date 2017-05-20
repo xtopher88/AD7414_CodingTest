@@ -19,7 +19,14 @@ int Configure(char THigh_C,
         char i2c_address)
 {
     //Set the Configuration Register
-    char reg_value = DEFAULT_CONFIGURATION | (nAlert<<ALERT_SHIFT) | (nPower<<POWER_DOWN_SHIFT);
+    char reg_value = DEFAULT_CONFIGURATION |
+            (nAlert<<ALERT_SHIFT) |
+            (nPower<<POWER_DOWN_SHIFT);
+    // if configuring for power down operation ensure the one shot is set
+    if(nPower == FULL_POWER_DOWN)
+    {
+        reg_value |= ONE_SHOT_MASK;
+    }
     int nStatus = SetRegister(CONFIG_REG, reg_value, i2c_address);
     if(nStatus<0)
     {
@@ -45,6 +52,7 @@ int ReadTemperature(int *TempCenti_C, READ_MODE nReadMode, char i2c_address)
     {
         return ERROR_VALUE;
     }
+//
     // Write to select reading from the Temperature Register
     char nRegister = TEMPERATURE_REG;
     int nStatus = i2c_open();

@@ -21,16 +21,16 @@ int main (int argc, char *argv[])
         printf("not enough arguments\n./TestProgram T_high T_low Alert Continuous\n");
         printf("T_high = temperature in deg C signed\n");
         printf("T_low = temperature in deg C signed\n");
-        printf("Alert = (0=disabled)");
-        printf("Continuous = (0=disabled)");
+        printf("Alert = (0=disabled)\n");
+        printf("Continuous = (0=disabled)\n");
         return EXIT_SUCCESS;
     }
 
     int t_high = atoi(argv[1]);
     int t_low = atoi(argv[2]);
     int nAlert = atoi(argv[3]);
-    int nContinuous = atoi(argv[3]);
-    printf("Reading Temperature, Th=%d, Tl=%d, Alert=%d, Continuous=%d\n",t_high,t_low,nAlert,nContinuous);
+    int nContinuous = atoi(argv[4]);
+    //printf("Reading Temperature, Th=%d, Tl=%d, Alert=%d, Continuous=%d\n",t_high,t_low,nAlert,nContinuous);
 
 #ifdef CODE_TESTS
     //Test temperature conversion

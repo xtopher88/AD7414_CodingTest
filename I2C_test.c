@@ -70,7 +70,7 @@ int i2c_write(char *buf, int size, char device_addr)
     int count = size;
     while(count-- > 0)
     {
-        printf(", %d",*buf++);
+        printf(", %d",(unsigned char)*buf++);
     }
     printf("\n");
     return size;

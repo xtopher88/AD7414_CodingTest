@@ -12,13 +12,13 @@
 
 #define SIGN_BIT 0x200
 #define TEMP_CONVERSION_FACTOR 25
-// the default configuration, i2c filtering on and alert reset active
-#define DEFAULT_CONFIGURATION 0x48
+// the default configuration, i2c filtering on, alert reset active, and single shot mask
+#define DEFAULT_CONFIGURATION 0x4C
 // masks for setting configuration
 #define POWER_DOWN_SHIFT 7
 #define ALERT_SHIFT 5
 
-#define ONE_SHOT_MASK = 0x04
+#define ONE_SHOT_MASK 0x04
 
 // Interface to AD7414
 typedef enum
